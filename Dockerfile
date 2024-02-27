@@ -1,8 +1,6 @@
 FROM python:3.12
 LABEL maintainer="justin4758@naver.com"
 
-ENV streamlinkCommit=57dacf7bc9ee1f5793f8aa3c715220ded19653f6
-
 #ENV streamlinkVersion=6.4.2
 #ENV PATH "${HOME}/.local/bin:${PATH}"
 
@@ -19,7 +17,7 @@ ENV streamlinkCommit=57dacf7bc9ee1f5793f8aa3c715220ded19653f6
 
 RUN apt-get update && apt-get install gosu && apt-get install python3-pip -y
 
-RUN pip3 install --upgrade git+https://github.com/streamlink/streamlink.git@${streamlinkCommit}
+RUN pip3 install --upgrade git+https://github.com/fml09/streamlink.git
 
 RUN apt-get update -y && \
     apt-get install -y ffmpeg && \
@@ -33,9 +31,6 @@ RUN mkdir /home/plugins
 
 #RUN git clone https://github.com/Damianonymous/streamlink-plugins.git
 #RUN cp /streamlink-plugins/*.py /home/plugins/
-
-RUN git clone https://github.com/park-onezero/streamlink-plugin-chzzk.git
-RUN cp /streamlink-plugin-chzzk/*.py /usr/local/lib/python3.12/site-packages/streamlink/plugins
 
 COPY ./streamlink-recorder.sh /home/script/
 COPY ./entrypoint.sh /home/script
