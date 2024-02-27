@@ -34,6 +34,9 @@ RUN mkdir /home/plugins
 RUN git clone https://github.com/Damianonymous/streamlink-plugins.git
 RUN cp /streamlink-plugins/*.py /home/plugins/
 
+RUN git clone https://github.com/park-onezero/streamlink-plugin-chzzk.git
+RUN cp /streamlink-plugin-chzzk/*.py /home/plugins/
+
 COPY ./streamlink-recorder.sh /home/script/
 COPY ./entrypoint.sh /home/script
 
