@@ -14,19 +14,21 @@ To run the Container:
 version: "3"
 services:
   record:
-   image: ghcr.io/kimpig/streamlink-recorder-mp4:main
-   container_name: Streamlink-Recorder
-   restart: unless-stopped
-   volumes:
-      - /urdownloadfolder:/home/download
-   environment:
-      - streamName=STREAMNAME
-      - streamLink=STREAMURL
+    image: ghcr.io/kimpig/streamlink-recorder-mp4:add-streamlink-plugin-chzzk
+    container_name: Streamlink-Recorder-chzzk
+    restart: unless-stopped
+    volumes:
+      - /volume:/home/download
+    environment:
+      - streamName=
+      - streamLink=
       - streamQuality=best
-      - streamOptions=OPTIONS
-      - uid=1000
-      - gid=1000
+      - streamOptions=--plugin-dirs "/usr/local/lib/python3.12/site-packages/streamlink/plugins/"
+      - uid=0
+      - gid=0
       - TZ=Asia/Seoul
+    labels:
+      - com.centurylinklabs.watchtower.monitor-only=true
 ```
 
 ## Notes
