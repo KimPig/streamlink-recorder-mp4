@@ -35,7 +35,6 @@ RUN mkdir /home/plugins
 #RUN cp /streamlink-plugins/*.py /home/plugins/
 
 RUN git clone https://github.com/park-onezero/streamlink-plugin-chzzk.git
-RUN cp /streamlink-plugin-chzzk/*.py /usr/local/lib/python3.12/site-packages/streamlink/plugin
 RUN cp /streamlink-plugin-chzzk/*.py /usr/local/lib/python3.12/site-packages/streamlink/plugins
 
 COPY ./streamlink-recorder.sh /home/script/
