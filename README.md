@@ -1,4 +1,4 @@
-# docker-streamlink-recorder
+# docker-streamlink-recorder for chzzk (beta)
 
 Automated Dockerfile to record livestreams with streamlink forked from lauwarm/streamlink-recorder
 
@@ -44,6 +44,8 @@ services:
 `streamName` - name for the stream.
 
 `streamOptions` - streamlink flags (--twitch-disable-hosting --twitch-disable-ads, separated by space, see [Plugins](https://streamlink.github.io/plugins.html))
+
+  to use chzzk, you should put --plugin-dirs "/usr/local/lib/python3.12/site-packages/streamlink/plugins/" in streamOptions
 
 `uid` - USER ID, map to your desired User ID (fallback to 9001)
 
