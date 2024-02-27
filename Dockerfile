@@ -31,11 +31,12 @@ RUN mkdir /home/download
 RUN mkdir /home/script
 RUN mkdir /home/plugins
 
-RUN git clone https://github.com/Damianonymous/streamlink-plugins.git
-RUN cp /streamlink-plugins/*.py /home/plugins/
+#RUN git clone https://github.com/Damianonymous/streamlink-plugins.git
+#RUN cp /streamlink-plugins/*.py /home/plugins/
 
 RUN git clone https://github.com/park-onezero/streamlink-plugin-chzzk.git
-RUN cp /streamlink-plugin-chzzk/*.py /home/plugins/
+RUN cp /streamlink-plugin-chzzk/*.py /usr/local/lib/python3.12/site-packages/streamlink/plugin
+RUN cp /streamlink-plugin-chzzk/*.py /usr/local/lib/python3.12/site-packages/streamlink/plugins
 
 COPY ./streamlink-recorder.sh /home/script/
 COPY ./entrypoint.sh /home/script
